@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GLASSGRAD™ – Engineered from Recycled Glass</title>
+  <meta name="description" content="GLASSGRAD™ engineers premium recycled-glass media for water filtration (AQUA) and blasting (BLAST). Made in Portugal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Brand palette (derived from your diamond shard logo) */
+      --brand-dark:#0f3d56;      /* deep navy */
+      --brand-mid:#156087;       /* steel blue */
+      --brand-teal:#12c2c9;      /* aqua-teal */
+      --brand-cyan:#2ec7d3;      /* light aqua */
+      --brand-sky:#7fd7e0;       /* sky accent */
+      --surface:#f4f7f9;         /* light background */
+      --card:#ffffff;            /* cards */
+      --ink:#112433;             /* body text */
+      --muted:#5a7283;           /* muted text */
+      --ring: #e6eef3;           /* soft borders */
+      --success:#2bb673;         /* QA / eco */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--ink); background:var(--surface);
+    }
+    a{color:var(--brand-teal); text-decoration:none}
+    .container{max-width:1200px; margin-inline:auto; padding:0 24px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      background:rgba(255,255,255,0.85); border-bottom:1px solid var(--ring);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{display:flex; gap:14px; align-items:center}
+    .brand svg{height:38px; width:auto}
+    .brand .wordmark{font-weight:800; letter-spacing:0.5px; font-size:20px}
+    .wordmark span{color:var(--brand-teal)}
+    .nav a{font-weight:600; color:var(--ink)}
+    .menu{display:flex; gap:22px; align-items:center}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; font-weight:700}
+    .btn.primary{background:linear-gradient(135deg, var(--brand-mid), var(--brand-teal)); color:#fff}
+    .btn.ghost{border:1px solid var(--ring); background:#fff; color:var(--ink)}
+
+    /* Hero */
+    .hero{position:relative; overflow:hidden; background:radial-gradient(1200px 600px at 85% -50%, var(--brand-sky) 0%, transparent 55%), #fff}
+    .hero .container{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; padding:72px 24px}
+    .eyebrow{color:var(--brand-mid); font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:12px}
+    h1{font-size:54px; line-height:1.05; margin:12px 0 14px}
+    .lead{font-size:18px; color:var(--muted); max-width:60ch}
+    .hero-cta{margin-top:26px; display:flex; gap:12px; flex-wrap:wrap}
+    .hero-card{background:#fff; border:1px solid var(--ring); border-radius:20px; padding:18px; display:grid; gap:10px; box-shadow:0 10px 30px rgba(17,36,51,.06)}
+    .hero-card h3{margin:0; font-size:16px}
+    .badge{display:inline-flex; align-items:center; gap:8px; font-size:12px; border:1px solid var(--ring); padding:8px 10px; border-radius:999px; background:#fff}
+
+    /* Sections */
+    section{padding:72px 0}
+    .section-title{font-size:34px; margin:0 0 14px}
+    .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+    .kpi{background:var(--card); border:1px solid var(--ring); border-radius:16px; padding:22px; text-align:center}
+    .kpi strong{font-size:28px; display:block}
+
+    .cards{display:grid; grid-template-columns:repeat(12,1fr); gap:20px}
+    .card{grid-column:span 6; background:var(--card); border:1px solid var(--ring); border-radius:18px; padding:26px; box-shadow:0 8px 24px rgba(15,61,86,.06)}
+    .card h3{margin-top:0}
+
+    .pill{display:inline-flex; gap:8px; align-items:center; font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--ring); background:#fff}
+    .list{display:grid; gap:8px; margin:14px 0 0; padding:0}
+    .list li{list-style:none; padding-left:0}
+
+    .cta-band{background:linear-gradient(110deg, var(--brand-dark), var(--brand-teal)); color:white; border-radius:18px; padding:26px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px}
+
+    /* Footer */
+    footer{border-top:1px solid var(--ring); background:#fff; padding:40px 0 60px}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero .container{grid-template-columns:1fr}
+      .kpis{grid-template-columns:1fr 1fr}
+      .card{grid-column:span 12}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <!-- Diamond Shard Brand Mark (SVG recreation to match your pick) -->
+        <img src="assets/logo.svg" alt="GLASSGRAD logo" class="brand-logo" style="height:56px;">
+      </a>
+      <nav class="menu">
+        <a href="#products">Products</a>
+        <a href="#why">Why GLASSGRAD</a>
+        <a href="#process">Process</a>
+        <a href="#contact" class="btn ghost">Contact</a>
+        <a href="#quote" class="btn primary">Request a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div>
+          <div class="eyebrow">Made in Portugal · Post‑industrial Glass</div>
+          <h1>Engineered from Recycled Glass.<br/>Designed for Results.</h1>
+          <p class="lead">Premium recycled‑glass media for <strong>water filtration</strong> and <strong>abrasive blasting</strong>. Ultra‑clean inputs, tight gradation, and consistent performance across AQUA and BLAST lines.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#products">Explore Products</a>
+            <a class="btn ghost" href="#datasheets">View Datasheets (PDF)</a>
+            <span class="badge" title="Country of Origin">
+              <!-- Simple PT badge -->
+              🇵🇹 <strong>Made in Portugal</strong>
+            </span>
+          </div>
+          <div style="margin-top:22px" class="kpis">
+            <div class="kpi"><strong>0.4–0.8 mm</strong><span>Pool/industrial filtration grade</span></div>
+            <div class="kpi"><strong>1.0–2.0 mm</strong><span>Dual‑media & specialty filters</span></div>
+            <div class="kpi"><strong>Fine · Med · Coarse</strong><span>Blast media gradations</span></div>
+            <div class="kpi"><strong>100% Recycled</strong><span>Ultra‑clean post‑industrial glass</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Quality. Purity. Performance.</h3>
+          <p style="margin:0;color:var(--muted)">Every batch is screened, washed, dried and polished for superior turbidity reduction and media life. Certificates of Analysis available.</p>
+          <ul class="list">
+            <li>• Low dust, rounded‑edge media</li>
+            <li>• Tight particle‑size distribution</li>
+            <li>• Reduced backwash frequency</li>
+            <li>• Consistent blasting profile</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <div class="container">
+        <h2 class="section-title">Products</h2>
+        <div class="cards">
+          <article class="card" style="border-top:4px solid var(--brand-teal)">
+            <div class="pill">AQUA · Water Filtration Media</div>
+            <h3>AQUAGLAS™ — Advanced Filter Media</h3>
+            <p>Engineered recycled glass for municipal, industrial and pool filtration. Available in 0.4–0.8 mm and 1.0–2.0 mm, with optional polishing stage for ultra‑low turbidity.</p>
+            <ul class="list">
+              <li>• Higher flow rates vs. silica sand</li>
+              <li>• Reduced media replacement frequency</li>
+              <li>• Hygienic and chemically inert</li>
+            </ul>
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn ghost" href="#datasheets">Datasheet</a>
+              <a class="btn primary" href="#quote">Get Pricing</a>
+            </div>
+          </article>
+
+          <article class="card" style="border-top:4px solid var(--brand-mid)">
+            <div class="pill">BLAST · Abrasives & Media</div>
+            <h3>GLASSGRAD™ BLAST — Recycled Glass Abrasive</h3>
+            <p>Clean, angular profiles for effective coating removal and surface prep. Fine / Medium / Coarse gradations for steel, concrete, and marine applications.</p>
+            <ul class="list">
+              <li>• Silica‑free, low dust formulation</li>
+              <li>• Consistent profile & fast cleanup</li>
+              <li>• Packed in 25 kg bags or 1‑2 t FIBCs</li>
+            </ul>
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn ghost" href="#datasheets">Datasheet</a>
+              <a class="btn primary" href="#quote">Request a Quote</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why" style="background:#fff">
+      <div class="container">
+        <h2 class="section-title">Why GLASSGRAD</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Engineered Purity</h3>
+            <p>We start with ultra‑clean post‑industrial glass. Multi‑stage washing, drying and polishing ensure low turbidity and minimal fines.</p>
+          </div>
+          <div class="card">
+            <h3>Consistent Gradation</h3>
+            <p>Tight particle sizing yields predictable hydraulic performance in filters and a reliable profile in blasting.</p>
+          </div>
+          <div class="card">
+            <h3>Sustainable by Design</h3>
+            <p>Every tonne repurposes waste glass into high‑value media — lowering landfill and reducing demand for virgin silica.</p>
+          </div>
+          <div class="card">
+            <h3>Made in Portugal</h3>
+            <p>European manufacturing with traceability, batch records and certificates on request.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <h2 class="section-title">Our Process</h2>
+        <div class="cards">
+          <div class="card"><h3>1 · Sourcing</h3><p>Ultra‑clean post‑industrial glass feedstock.</p></div>
+          <div class="card"><h3>2 · Crush & Classify</h3><p>Controlled reduction and multi‑deck screening.</p></div>
+          <div class="card"><h3>3 · Wash & Dry</h3><p>Removal of fines and organics; moisture < 1%.</p></div>
+          <div class="card"><h3>4 · Polish & Pack</h3><p>Edge smoothing for filter safety; 25 kg bags / 1–2 t FIBCs.</p></div>
+        </div>
+        <div class="cta-band" style="margin-top:26px">
+          <strong>Need a custom grade or private‑label packaging?</strong>
+          <a class="btn ghost" href="#contact" style="background:#fff; color:var(--brand-dark)">Talk to Engineering</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATASHEETS / CTA -->
+    <section id="datasheets" style="background:#fff">
+      <div class="container">
+        <h2 class="section-title">Datasheets & Compliance</h2>
+        <p class="lead">Download technical data, Safety Data Sheets, and performance notes for AQUAGLAS™ and GLASSGRAD™ BLAST.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px">
+          <a class="btn primary" href="#">AQUAGLAS™ PDF</a>
+          <a class="btn primary" href="#">BLAST PDF</a>
+          <a class="btn ghost" href="#">SDS</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="cards">
+          <div class="card" style="grid-column:span 7">
+            <h3>Request a Quote</h3>
+            <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you shortly.');">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+                <input required placeholder="Full name" style="padding:12px 14px; border:1px solid var(--ring); border-radius:10px" />
+                <input required type="email" placeholder="Work email" style="padding:12px 14px; border:1px solid var(--ring); border-radius:10px" />
+                <input placeholder="Company" style="padding:12px 14px; border:1px solid var(--ring); border-radius:10px" />
+                <input placeholder="Phone" style="padding:12px 14px; border:1px solid var(--ring); border-radius:10px" />
+                <select style="padding:12px 14px; border:1px solid var(--ring); border-radius:10px">
+                  <option>Product interest: AQUAGLAS™</option>
+                  <option>Product interest: BLAST</option>
+                  <option>Both / Not sure</option>
+                </select>
+                <select style="padding:12px 14px; border:1px solid var(--ring); border-radius:10px">
+                  <option>Packaging: 25 kg bags</option>
+                  <option>Packaging: 1 t FIBC</option>
+                  <option>Packaging: 2 t FIBC</option>
+                </select>
+                <textarea rows="4" placeholder="Quantity, specs, timeline…" style="grid-column:1/-1; padding:12px 14px; border:1px solid var(--ring); border-radius:10px"></textarea>
+              </div>
+              <div style="margin-top:14px; display:flex; gap:10px">
+                <button class="btn primary" type="submit">Send request</button>
+                <a class="btn ghost" href="#">Email us</a>
+              </div>
+            </form>
+          </div>
+          <div class="card" style="grid-column:span 5">
+            <h3>GLASSGRAD™</h3>
+            <p>Portugal · EU</p>
+            <p class="muted">Manufacturing & Logistics · Certificates available on request.</p>
+            <hr style="border:none; border-top:1px solid var(--ring); margin:14px 0">
+            <p class="muted">Prefer WhatsApp/Telegram notifications for shipments and quotes? We can set that up.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; gap:16px; justify-content:space-between">
+      <div style="display:flex; align-items:center; gap:6px">
+        <img src="assets/logo.svg" alt="GLASSGRAD logo" style="height:40px;"></div>
+      <small style="color:var(--muted)">© <script>document.write(new Date().getFullYear())</script> GLASSGRAD. Engineered from Recycled Glass.</small>
+    </div>
+  </footer>
+</body>
+</html>
+
