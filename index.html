@@ -48,6 +48,26 @@
     .btn.primary{background:linear-gradient(135deg, var(--brand-mid), var(--brand-teal)); color:#fff}
     .btn.ghost{border:1px solid var(--ring); background:#fff; color:var(--ink)}
 
+    /* Language switcher */
+    .lang-switch{
+      display:flex;
+      gap:6px;
+      margin-left:16px;
+    }
+    .lang-btn{
+      border:none;
+      background:transparent;
+      font-size:12px;
+      padding:4px 7px;
+      border-radius:999px;
+      cursor:pointer;
+      color:var(--muted);
+    }
+    .lang-btn.active{
+      background:var(--brand-dark);
+      color:#fff;
+    }
+
     /* Hero */
     .hero{position:relative; overflow:hidden; background:radial-gradient(1200px 600px at 85% -50%, var(--brand-sky) 0%, transparent 55%), #fff}
     .hero .container{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; padding:72px 24px}
@@ -84,6 +104,8 @@
       .hero .container{grid-template-columns:1fr}
       .kpis{grid-template-columns:1fr 1fr}
       .card{grid-column:span 12}
+      .menu{gap:12px}
+      .lang-switch{margin-left:0}
     }
   </style>
 </head>
@@ -91,59 +113,71 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#">
-        <!-- Diamond Shard Brand Mark (SVG recreation to match your pick) -->
         <img src="assets/logo.svg" alt="GLASSGRAD logo" class="brand-logo" style="height:56px;">
       </a>
       <nav class="menu">
-        <a href="#products">Products</a>
-        <a href="#why">Why GLASSGRAD</a>
-        <a href="#process">Process</a>
-        <a href="#contact" class="btn ghost">Contact</a>
-        <a href="#quote" class="btn primary">Request a Quote</a>
+        <a href="#products" data-i18n="nav.products">Products</a>
+        <a href="#why" data-i18n="nav.why">Why GLASSGRAD</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#contact" class="btn ghost" data-i18n="nav.contact">Contact</a>
+        <a href="#quote" class="btn primary" data-i18n="nav.quote">Request a Quote</a>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+        </div>
       </nav>
     </div>
   </header>
-<div style="
-  background:#1f527b;
-  color:white;
-  padding:16px 25px;
-  font-size:18px;
-  text-align:center;
-  font-weight:600;
-  border-bottom:4px solid #42a8b8;
-">
-  ⚠️ GLASSGRAD is currently in its pre-launch phase. This website is a trial version used for project development, feasibility studies, and supplier evaluation.
-</div>
+
+  <div
+    data-i18n="banner.text"
+    style="
+      background:#1f527b;
+      color:white;
+      padding:16px 25px;
+      font-size:18px;
+      text-align:center;
+      font-weight:600;
+      border-bottom:4px solid #42a8b8;
+    "
+  >
+    ⚠️ GLASSGRAD is currently in its pre-launch phase. This website is a trial version used for project development, feasibility studies, and supplier evaluation.
+  </div>
 
   <main>
     <!-- HERO -->
     <section class="hero">
       <div class="container">
         <div>
-          <div class="eyebrow">Made in Portugal · Post‑industrial Glass</div>
-          <h1>Engineered from Recycled Glass.<br/>Designed for Results.</h1>
-          <p class="lead">Premium recycled‑glass media for <strong>water filtration</strong> and <strong>abrasive blasting</strong>. Ultra‑clean inputs, tight gradation, and consistent performance across AQUA and BLAST lines.</p>
+          <div class="eyebrow" data-i18n="hero.eyebrow">Made in Portugal · Post-industrial Glass</div>
+          <h1 data-i18n="hero.heading">Engineered from Recycled Glass.<br/>Designed for Results.</h1>
+          <p class="lead" data-i18n="hero.lead">
+            Premium recycled-glass media for <strong>water filtration</strong> and <strong>abrasive blasting</strong>.
+            Ultra-clean inputs, tight gradation, and consistent performance across AQUA and BLAST lines.
+          </p>
           <div class="hero-cta">
-            <a class="btn primary" href="#products">Explore Products</a>
-            <a class="btn ghost" href="#datasheets">View Datasheets (PDF)</a>
-            <span class="badge" title="Country of Origin">
-              <!-- Simple PT badge -->
+            <a class="btn primary" href="#products" data-i18n="hero.cta.explore">Explore Products</a>
+            <a class="btn ghost" href="#datasheets" data-i18n="hero.cta.datasheets">View Datasheets (PDF)</a>
+            <span class="badge" title="Country of Origin" data-i18n="hero.badge">
               🇵🇹 <strong>Made in Portugal</strong>
             </span>
           </div>
           <div style="margin-top:22px" class="kpis">
             <div class="kpi"><strong>0.4–0.8 mm</strong><span>Pool/industrial filtration grade</span></div>
-            <div class="kpi"><strong>1.0–2.0 mm</strong><span>Dual‑media & specialty filters</span></div>
+            <div class="kpi"><strong>1.0–2.0 mm</strong><span>Dual-media & specialty filters</span></div>
             <div class="kpi"><strong>Fine · Med · Coarse</strong><span>Blast media gradations</span></div>
-            <div class="kpi"><strong>100% Recycled</strong><span>Ultra‑clean post‑industrial glass</span></div>
+            <div class="kpi"><strong>100% Recycled</strong><span>Ultra-clean post-industrial glass</span></div>
           </div>
         </div>
         <div class="hero-card">
           <h3>Quality. Purity. Performance.</h3>
           <p style="margin:0;color:var(--muted)">Every batch is screened, washed, dried and polished for superior turbidity reduction and media life. Certificates of Analysis available.</p>
           <ul class="list">
-            <li>• Low dust, rounded‑edge media</li>
-            <li>• Tight particle‑size distribution</li>
+            <li>• Low dust, rounded-edge media</li>
+            <li>• Tight particle-size distribution</li>
             <li>• Reduced backwash frequency</li>
             <li>• Consistent blasting profile</li>
           </ul>
@@ -154,12 +188,12 @@
     <!-- PRODUCTS -->
     <section id="products">
       <div class="container">
-        <h2 class="section-title">Products</h2>
+        <h2 class="section-title" data-i18n="section.products.title">Products</h2>
         <div class="cards">
           <article class="card" style="border-top:4px solid var(--brand-teal)">
             <div class="pill">AQUA · Water Filtration Media</div>
             <h3>AQUAGLAS™ — Advanced Filter Media</h3>
-            <p>Engineered recycled glass for municipal, industrial and pool filtration. Available in 0.4–0.8 mm and 1.0–2.0 mm, with optional polishing stage for ultra‑low turbidity.</p>
+            <p>Engineered recycled glass for municipal, industrial and pool filtration. Available in 0.4–0.8 mm and 1.0–2.0 mm, with optional polishing stage for ultra-low turbidity.</p>
             <ul class="list">
               <li>• Higher flow rates vs. silica sand</li>
               <li>• Reduced media replacement frequency</li>
@@ -176,9 +210,9 @@
             <h3>GLASSGRAD™ BLAST — Recycled Glass Abrasive</h3>
             <p>Clean, angular profiles for effective coating removal and surface prep. Fine / Medium / Coarse gradations for steel, concrete, and marine applications.</p>
             <ul class="list">
-              <li>• Silica‑free, low dust formulation</li>
+              <li>• Silica-free, low dust formulation</li>
               <li>• Consistent profile & fast cleanup</li>
-              <li>• Packed in 25 kg bags or 1‑2 t FIBCs</li>
+              <li>• Packed in 25 kg bags or 1-2 t FIBCs</li>
             </ul>
             <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
               <a class="btn ghost" href="#datasheets">Datasheet</a>
@@ -192,11 +226,11 @@
     <!-- WHY -->
     <section id="why" style="background:#fff">
       <div class="container">
-        <h2 class="section-title">Why GLASSGRAD</h2>
+        <h2 class="section-title" data-i18n="section.why.title">Why GLASSGRAD</h2>
         <div class="cards">
           <div class="card">
             <h3>Engineered Purity</h3>
-            <p>We start with ultra‑clean post‑industrial glass. Multi‑stage washing, drying and polishing ensure low turbidity and minimal fines.</p>
+            <p>We start with ultra-clean post-industrial glass. Multi-stage washing, drying and polishing ensure low turbidity and minimal fines.</p>
           </div>
           <div class="card">
             <h3>Consistent Gradation</h3>
@@ -204,7 +238,7 @@
           </div>
           <div class="card">
             <h3>Sustainable by Design</h3>
-            <p>Every tonne repurposes waste glass into high‑value media — lowering landfill and reducing demand for virgin silica.</p>
+            <p>Every tonne repurposes waste glass into high-value media — lowering landfill and reducing demand for virgin silica.</p>
           </div>
           <div class="card">
             <h3>Made in Portugal</h3>
@@ -217,15 +251,15 @@
     <!-- PROCESS -->
     <section id="process">
       <div class="container">
-        <h2 class="section-title">Our Process</h2>
+        <h2 class="section-title" data-i18n="section.process.title">Our Process</h2>
         <div class="cards">
-          <div class="card"><h3>1 · Sourcing</h3><p>Ultra‑clean post‑industrial glass feedstock.</p></div>
-          <div class="card"><h3>2 · Crush & Classify</h3><p>Controlled reduction and multi‑deck screening.</p></div>
-          <div class="card"><h3>3 · Wash & Dry</h3><p>Removal of fines and organics; moisture < 1%.</p></div>
+          <div class="card"><h3>1 · Sourcing</h3><p>Ultra-clean post-industrial glass feedstock.</p></div>
+          <div class="card"><h3>2 · Crush & Classify</h3><p>Controlled reduction and multi-deck screening.</p></div>
+          <div class="card"><h3>3 · Wash & Dry</h3><p>Removal of fines and organics; moisture &lt; 1%.</p></div>
           <div class="card"><h3>4 · Polish & Pack</h3><p>Edge smoothing for filter safety; 25 kg bags / 1–2 t FIBCs.</p></div>
         </div>
         <div class="cta-band" style="margin-top:26px">
-          <strong>Need a custom grade or private‑label packaging?</strong>
+          <strong>Need a custom grade or private-label packaging?</strong>
           <a class="btn ghost" href="#contact" style="background:#fff; color:var(--brand-dark)">Talk to Engineering</a>
         </div>
       </div>
@@ -234,8 +268,10 @@
     <!-- DATASHEETS / CTA -->
     <section id="datasheets" style="background:#fff">
       <div class="container">
-        <h2 class="section-title">Datasheets & Compliance</h2>
-        <p class="lead">Download technical data, Safety Data Sheets, and performance notes for AQUAGLAS™ and GLASSGRAD™ BLAST.</p>
+        <h2 class="section-title" data-i18n="section.datasheets.title">Datasheets &amp; Compliance</h2>
+        <p class="lead" data-i18n="section.datasheets.lead">
+          Download technical data, Safety Data Sheets, and performance notes for AQUAGLAS™ and GLASSGRAD™ BLAST.
+        </p>
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px">
           <a class="btn primary" href="#">AQUAGLAS™ PDF</a>
           <a class="btn primary" href="#">BLAST PDF</a>
@@ -247,7 +283,7 @@
     <!-- CONTACT -->
     <section id="contact">
       <div class="container">
-        <h2 class="section-title">Contact</h2>
+        <h2 class="section-title" data-i18n="section.contact.title">Contact</h2>
         <div class="cards">
           <div class="card" style="grid-column:span 7">
             <h3>Request a Quote</h3>
@@ -290,10 +326,162 @@
   <footer>
     <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; gap:16px; justify-content:space-between">
       <div style="display:flex; align-items:center; gap:6px">
-        <img src="assets/logo.svg" alt="GLASSGRAD logo" style="height:40px;"></div>
+        <img src="assets/logo.svg" alt="GLASSGRAD logo" style="height:40px;">
+      </div>
       <small style="color:var(--muted)">© <script>document.write(new Date().getFullYear())</script> GLASSGRAD. Engineered from Recycled Glass.</small>
     </div>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        "nav.products":"Products",
+        "nav.why":"Why GLASSGRAD",
+        "nav.process":"Process",
+        "nav.contact":"Contact",
+        "nav.quote":"Request a Quote",
+        "banner.text":"⚠️ GLASSGRAD is currently in its pre-launch phase. This website is a trial version used for project development, feasibility studies, and supplier evaluation.",
+        "hero.eyebrow":"Made in Portugal · Post-industrial Glass",
+        "hero.heading":"Engineered from Recycled Glass.<br/>Designed for Results.",
+        "hero.lead":"Premium recycled-glass media for <strong>water filtration</strong> and <strong>abrasive blasting</strong>. Ultra-clean inputs, tight gradation, and consistent performance across AQUA and BLAST lines.",
+        "hero.cta.explore":"Explore Products",
+        "hero.cta.datasheets":"View Datasheets (PDF)",
+        "hero.badge":"🇵🇹 <strong>Made in Portugal</strong>",
+        "section.products.title":"Products",
+        "section.why.title":"Why GLASSGRAD",
+        "section.process.title":"Our Process",
+        "section.datasheets.title":"Datasheets &amp; Compliance",
+        "section.datasheets.lead":"Download technical data, Safety Data Sheets, and performance notes for AQUAGLAS™ and GLASSGRAD™ BLAST.",
+        "section.contact.title":"Contact"
+      },
+      pt: {
+        "nav.products":"Produtos",
+        "nav.why":"Por que a GLASSGRAD",
+        "nav.process":"Processo",
+        "nav.contact":"Contacto",
+        "nav.quote":"Pedir orçamento",
+        "banner.text":"⚠️ A GLASSGRAD encontra-se atualmente em fase de pré-lançamento. Este website é uma versão de teste utilizada para desenvolvimento do projeto, estudos de viabilidade e avaliação de fornecedores.",
+        "hero.eyebrow":"Fabricado em Portugal · Vidro pós-industrial",
+        "hero.heading":"Desenvolvido a partir de vidro reciclado.<br/>Projetado para desempenho.",
+        "hero.lead":"Meios de vidro reciclado de alta qualidade para <strong>filtração de água</strong> e <strong>jato abrasivo</strong>. Matérias-primas ultra limpas, gradação rigorosa e desempenho consistente nas linhas AQUA e BLAST.",
+        "hero.cta.explore":"Ver produtos",
+        "hero.cta.datasheets":"Ver fichas técnicas (PDF)",
+        "hero.badge":"🇵🇹 <strong>Fabricado em Portugal</strong>",
+        "section.products.title":"Produtos",
+        "section.why.title":"Por que a GLASSGRAD",
+        "section.process.title":"O nosso processo",
+        "section.datasheets.title":"Fichas técnicas &amp; conformidade",
+        "section.datasheets.lead":"Descarregue dados técnicos, Fichas de Segurança e notas de desempenho para AQUAGLAS™ e GLASSGRAD™ BLAST.",
+        "section.contact.title":"Contacto"
+      },
+      es: {
+  "nav.products":"",
+  "nav.why":"",
+  "nav.process":"",
+  "nav.contact":"",
+  "nav.quote":"",
+
+  "banner.text":"",
+
+  "hero.eyebrow":"",
+  "hero.heading":"",
+  "hero.lead":"",
+
+  "hero.cta.explore":"",
+  "hero.cta.datasheets":"",
+  "hero.badge":"",
+
+  "section.products.title":"",
+  "section.why.title":"",
+  "section.process.title":"",
+  "section.datasheets.title":"",
+  "section.datasheets.lead":"",
+  "section.contact.title":""
+}
+
+      fr: {
+        "nav.products":"Produits",
+        "nav.why":"Pourquoi GLASSGRAD",
+        "nav.process":"Processus",
+        "nav.contact":"Contact",
+        "nav.quote":"Demander un devis",
+        "banner.text":"⚠️ GLASSGRAD est actuellement en phase de pré-lancement. Ce site est une version d’essai utilisée pour le développement du projet, les études de faisabilité et l’évaluation des fournisseurs.",
+        "hero.eyebrow":"Fabriqué au Portugal · Verre post-industriel",
+        "hero.heading":"Conçu à partir de verre recyclé.<br/>Pensé pour la performance.",
+        "hero.lead":"Médias en verre recyclé de haute qualité pour la <strong>filtration de l’eau</strong> et le <strong>sablage abrasif</strong>. Matières premières ultra propres, granulométrie serrée et performances constantes pour les gammes AQUA et BLAST.",
+        "hero.cta.explore":"Découvrir les produits",
+        "hero.cta.datasheets":"Voir les fiches techniques (PDF)",
+        "hero.badge":"🇵🇹 <strong>Fabriqué au Portugal</strong>",
+        "section.products.title":"Produits",
+        "section.why.title":"Pourquoi GLASSGRAD",
+        "section.process.title":"Notre processus",
+        "section.datasheets.title":"Fiches techniques &amp; conformité",
+        "section.datasheets.lead":"Téléchargez les données techniques, fiches de données de sécurité et notes de performance pour AQUAGLAS™ et GLASSGRAD™ BLAST.",
+        "section.contact.title":"Contact"
+      },
+      de: {
+        "nav.products":"Produkte",
+        "nav.why":"Warum GLASSGRAD",
+        "nav.process":"Prozess",
+        "nav.contact":"Kontakt",
+        "nav.quote":"Angebot anfordern",
+        "banner.text":"⚠️ GLASSGRAD befindet sich derzeit in der Vor-Launch-Phase. Diese Website ist eine Testversion für Projektentwicklung, Machbarkeitsstudien und Lieferantenbewertung.",
+        "hero.eyebrow":"Hergestellt in Portugal · Postindustrielles Glas",
+        "hero.heading":"Aus recyceltem Glas entwickelt.<br/>Für Leistung ausgelegt.",
+        "hero.lead":"Hochwertige Medien aus recyceltem Glas für <strong>Wasserfiltration</strong> und <strong>Strahlreinigung</strong>. Ultrasaubere Ausgangsstoffe, enge Kornverteilung und konstante Leistung in den AQUA- und BLAST-Produktlinien.",
+        "hero.cta.explore":"Produkte ansehen",
+        "hero.cta.datasheets":"Datenblätter anzeigen (PDF)",
+        "hero.badge":"🇵🇹 <strong>Hergestellt in Portugal</strong>",
+        "section.products.title":"Produkte",
+        "section.why.title":"Warum GLASSGRAD",
+        "section.process.title":"Unser Prozess",
+        "section.datasheets.title":"Datenblätter &amp; Konformität",
+        "section.datasheets.lead":"Laden Sie technische Daten, Sicherheitsdatenblätter und Leistungsinformationen für AQUAGLAS™ und GLASSGRAD™ BLAST herunter.",
+        "section.contact.title":"Kontakt"
+      },
+      it: {
+        "nav.products":"Prodotti",
+        "nav.why":"Perché GLASSGRAD",
+        "nav.process":"Processo",
+        "nav.contact":"Contatti",
+        "nav.quote":"Richiedi un preventivo",
+        "banner.text":"⚠️ GLASSGRAD è attualmente in fase di pre-lancio. Questo sito è una versione di prova utilizzata per lo sviluppo del progetto, studi di fattibilità e valutazione dei fornitori.",
+        "hero.eyebrow":"Prodotto in Portogallo · Vetro post-industriale",
+        "hero.heading":"Realizzato da vetro riciclato.<br/>Progettato per le prestazioni.",
+        "hero.lead":"Media in vetro riciclato di alta qualità per la <strong>filtrazione dell’acqua</strong> e la <strong>sabbiatura abrasiva</strong>. Materie prime ultra pulite, granulometria controllata e prestazioni costanti nelle linee AQUA e BLAST.",
+        "hero.cta.explore":"Esplora i prodotti",
+        "hero.cta.datasheets":"Vedi schede tecniche (PDF)",
+        "hero.badge":"🇵🇹 <strong>Prodotto in Portogallo</strong>",
+        "section.products.title":"Prodotti",
+        "section.why.title":"Perché GLASSGRAD",
+        "section.process.title":"Il nostro processo",
+        "section.datasheets.title":"Schede tecniche &amp; conformità",
+        "section.datasheets.lead":"Scarica dati tecnici, schede di sicurezza e note di prestazione per AQUAGLAS™ e GLASSGRAD™ BLAST.",
+        "section.contact.title":"Contatti"
+      }
+    };
+
+    function setLanguage(lang){
+      const dict = translations[lang] || translations.en;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const value = dict[key] || translations.en[key] || el.innerHTML;
+        el.innerHTML = value;
+      });
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      });
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
+    });
+
+    // default
+    setLanguage("en");
+  </script>
 </body>
 </html>
-
